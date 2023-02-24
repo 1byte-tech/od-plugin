@@ -1,0 +1,77 @@
+.aod-multi-step-wrap {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 11px;
+}
+.aod-multi-step-progress {
+    display: flex;
+    padding-top: 21px;
+    padding-bottom: 21px;
+}
+.aod-multi-step-progress li {
+    width: 130px;
+    text-align: center;
+    position: relative;
+    text-align: center;
+}
+.aod-multi-step-progress strong {
+    display: block;
+    padding-top: 8px;
+}
+.aod-multi-step-progress li::before {
+    content: '';
+    position: absolute;
+    top: 26px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    /*transform: translateY(-50%);*/
+    z-index: -3;
+}
+.aod-multi-step-progress li i {
+    /* font-size: 25px; */
+    display: block;
+    fill: #2271b1;
+}
+.aod-svg {
+    font-size: 25px;
+}
+.aod-svg svg {
+    width: 1em;
+    height: 1em;
+    line-height: 0;
+}
+
+.aod-multi-step-progress li i {
+    fill: #fff;
+    width: 50px;
+    height: 50px;
+    background: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.aod-multi-step-count {
+    font-weight: 600;
+}
+.aod-setting-btns .aod-setting-btn {
+    margin-top: 11px;
+}
+.aod-multi-step-progress li.active i,
+.aod-multi-step-progress li.active::before {
+    background: #2271b1;
+}
+.aod-multi-step-progress li.active strong {
+    color: #2271b1;
+}
+.aod-multi-step {
+    display: none;
+}
+.aod-multi-step.active {
+    display: block;
+}
