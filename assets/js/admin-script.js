@@ -63,8 +63,13 @@ jQuery(document).ready(function($){
 			},
 			success: (res) => {
 				if ( res.success == true ) {
+					window.location.href = res.data.url;
 					$('#aod-multi-step').val( 4 );
 					$('#aod-multi-step').click();
+				} else {
+					$('.aod-popup-html').empty();
+					$('.aod-popup-html').append( res.data.message );
+					$('.aod-popup').addClass('is-visible');
 				}
 				console.log(res);
 			}
@@ -114,6 +119,33 @@ jQuery(document).ready(function($){
 			$('.aod-multi-step-progress li:nth('+ (step - 1) +')').addClass('active');
 		}
 		$('.aod-multi-steps .aod-multi-step:nth('+ (step - 1) +')').addClass('active').siblings().removeClass('active');
+	});
+
+	// after wc api return 
+	if ( aod_localize_script.success == 1 ) {
+		$('.aod-multi-step-progress li:nth-child(-n + 3)').addClass( 'active' );
+		$('#aod-multi-step').val( 4 );
+		$('#aod-multi-step').click();
+	} 
+	
+	if ( aod_localize_script.success == 0 ) {
+		$('.aod-multi-step-progress li:nth-child(-n + 2)').addClass( 'active' );
+		$('#aod-multi-step').val( 3 );
+		$('#aod-multi-step').click();
+	}
+
+	//close popup
+	$('.aod-popup').on('click', function(event){
+		if( $(event.target).is('.aod-popup-close') || $(event.target).is('.aod-popup') ) {
+			event.preventDefault();
+			$(this).removeClass('is-visible');
+		}
+	});
+	//close popup when clicking the esc keyboard button
+	$(document).keyup(function(event){
+		if(event.which=='27'){
+			$('.aod-popup').removeClass('is-visible');
+		}
 	});
 });
 

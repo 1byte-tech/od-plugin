@@ -1,4 +1,4 @@
- <?php
+<?php
 /**
  * Add the top level menu page.
  */
@@ -117,6 +117,12 @@ function aod_options_page_html() {
 				</div>
 			</div>
 		</div>
+		<div class="aod-popup" role="alert">
+			<div class="aod-popup-container">
+				<p class="aod-popup-html"></p>
+				<a href="#0" class="aod-popup-close img-replace">Close</a>
+			</div> <!-- aod-popup-container -->
+		</div> <!-- aod-popup -->
 	</div>
 	<?php
 }
